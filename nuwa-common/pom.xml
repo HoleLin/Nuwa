@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.holelin</groupId>
+        <artifactId>Nuwa</artifactId>
+        <version>SNAPSHOT-1.0.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>cn.holelin</groupId>
+    <artifactId>nuwa-common</artifactId>
+    <version>${nuwa.version}</version>
+    <packaging>pom</packaging>
+    <name>nuwa-common</name>
+    <description>通用模块</description>
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>common-base</module>
+        <module>common-utils</module>
+        <module>common-file</module>
+    </modules>
+</project>
