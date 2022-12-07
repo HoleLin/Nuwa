@@ -6,17 +6,32 @@
         <groupId>cn.holelin</groupId>
         <artifactId>nuwa-common</artifactId>
         <version>SNAPSHOT-1.0.1</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>cn.holelin</groupId>
     <artifactId>common-utils</artifactId>
-    <version>${nuwa.version}</version>
+    <version>SNAPSHOT-1.0.1</version>
     <name>common-utils</name>
     <description>common-utils</description>
     <properties>
         <java.version>11</java.version>
     </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.holelin</groupId>
+            <artifactId>logfilter-starter</artifactId>
+            <version>SNAPSHOT-1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

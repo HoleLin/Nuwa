@@ -4,32 +4,31 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.holelin</groupId>
-        <artifactId>nuwa-common</artifactId>
+        <artifactId>nuwa-starter</artifactId>
         <version>SNAPSHOT-1.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>cn.holelin</groupId>
-    <artifactId>common-base</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>common-base</name>
-    <description>common-base</description>
+    <artifactId>logfilter-starter</artifactId>
+    <version>SNAPSHOT-1.0.1</version>
+    <packaging>jar</packaging>
+    <name>logfilter-starter</name>
+    <description>logfilter-starter</description>
     <properties>
+        <java.version>11</java.version>
     </properties>
-
     <dependencies>
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
             </plugin>
         </plugins>
     </build>

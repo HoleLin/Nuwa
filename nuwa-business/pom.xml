@@ -1,28 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>cn.holelin</groupId>
-		<artifactId>Nuwa</artifactId>
-		<version>SNAPSHOT-1.0.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>cn.holelin</groupId>
-	<artifactId>nuwa-business</artifactId>
-	<version>${nuwa.version}</version>
-	<name>nuwa-business</name>
-	<description>所有业务相关示例</description>
-	<properties>
-	</properties>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.holelin</groupId>
+        <artifactId>Nuwa</artifactId>
+        <version>SNAPSHOT-1.0.1</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>nuwa-business</artifactId>
+    <version>SNAPSHOT-1.0.1</version>
+    <packaging>pom</packaging>
+    <name>nuwa-business</name>
+    <description>所有业务相关示例</description>
+    <properties>
+        <!--  DICOM相关    -->
+        <commons-net.version>3.8.0</commons-net.version>
+        <dcm4che.version>5.23.3</dcm4che.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.dcm4che</groupId>
+                <artifactId>dcm4che-core</artifactId>
+                <version>${dcm4che.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.dcm4che</groupId>
+                <artifactId>dcm4che-net</artifactId>
+                <version>${dcm4che.version}</version>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+            </dependency>
+            <dependency>
+                <groupId>org.dcm4che.tool</groupId>
+                <artifactId>dcm4che-tool-common</artifactId>
+                <version>${dcm4che.version}</version>
+
+            </dependency>
+            <dependency>
+                <groupId>org.dcm4che</groupId>
+                <artifactId>dcm4che-imageio</artifactId>
+                <version>${dcm4che.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <modules>
+        <module>dicom</module>
+    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

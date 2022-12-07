@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IOD xml-space="preserved">
+    <DataElement keyword="PatientPosition" tag="00185100" vr="CS" type="1" vm="1">
+        <Value>HFS</Value>
+        <Value>FFS</Value>
+    </DataElement>
+    <DataElement keyword="Modality" tag="00080060" vr="CS" type="1" vm="1">
+        <Value>CT</Value>
+    </DataElement>
+    <DataElement keyword="Rows" tag="00280010" vr="US" type="1">
+        <Value>512</Value>
+    </DataElement>
+    <DataElement keyword="Columns" tag="00280011" vr="US" type="1">
+        <Value>512</Value>
+    </DataElement>
+    <DataElement keyword="SliceThickness" tag="00180050" vr="DS" type="1" vm="1"/>
+    <!-- For more tags please see the source code: org.dcm4che3.data.Tag. -->
+    <!-- Tags for Study -->
+    <DataElement keyword="SpecificCharacterSet" tag="00080005" vr="CS" type="1" vm="1-n"/>
+    <DataElement keyword="InstitutionName" tag="00080080" vr="LO" type="1" vm="1"/>
+    <DataElement keyword="StudyInstanceUID" tag="0020000D" vr="UI" type="1" vm="1"/>
+    <DataElement keyword="StudyID" tag="00200010" vr="SH" type="1" vm="1"/>
+    <DataElement keyword="StudyDate" tag="00080020" vr="DA" type="1" vm="1"/>
+    <DataElement keyword="AccessionNumber" tag="00080050" vr="SH" type="1" vm="1"/>
+    <DataElement keyword="ImageType" tag="00080008" vr="CS" type="1" vm="2-n"/>
+    <DataElement keyword="ImagePositionPatient" tag="00200032" vr="DS" type="1" vm="3"/>
+    <DataElement keyword="ImageOrientationPatient" tag="00200037" vr="DS" type="1" vm="6"/>
+
+    <!-- Tags for Series -->
+    <DataElement keyword="SeriesInstanceUID" tag="0020000E" vr="UI" type="1" vm="1"/>
+<!--    <DataElement keyword="SeriesDescription" tag="0008103E" vr="LO" type="1" vm="1"/>-->
+    <DataElement keyword="InstanceNumber" tag="00200013" vr="IS" type="1"/>
+<!--    <DataElement keyword="ConvolutionKernel" tag="00181210" vr="SH" type="1" vm="1-n"/>-->
+    <DataElement keyword="ProtocolName" tag="00181030" vr="LO" type="1" vm="1"/>
+
+    <!-- Tags for Patient -->
+    <DataElement keyword="PatientID" tag="00100020" vr="LO" type="1" vm="1"/>
+    <DataElement keyword="PatientName" tag="00100010" vr="PN" type="2" vm="1"/>
+    <DataElement keyword="PatientBirthDate" tag="00100030" vr="DA" type="1" vm="1"/>
+    <DataElement keyword="PatientAge" tag="00101010" vr="AS" type="1" vm="1"/>
+    <DataElement keyword="PatientSex" tag="00100040" vr="CS" type="1" vm="1"/>
+
+    <!-- Tags for Machine -->
+    <DataElement keyword="StationName" tag="00081010" vr="SH" type="1" vm="1"/>
+    <DataElement keyword="Manufacturer" tag="00080070" vr="LO" type="1" vm="1"/>
+    <DataElement keyword="ManufacturerModelName" tag="00081090" vr="LO" type="1" vm="1"/>
+</IOD>

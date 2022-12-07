@@ -6,9 +6,8 @@
         <groupId>cn.holelin</groupId>
         <artifactId>nuwa-common</artifactId>
         <version>SNAPSHOT-1.0.1</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>cn.holelin</groupId>
     <artifactId>common-file</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>common-file</name>
@@ -28,6 +27,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>

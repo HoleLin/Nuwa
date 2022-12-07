@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>cn.holelin</groupId>
     <artifactId>Nuwa</artifactId>
@@ -29,7 +29,6 @@
             <email>HoleLin@163.com</email>
         </developer>
     </developers>
-
 
     <properties>
         <java.version>11</java.version>
@@ -63,6 +62,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-aop</artifactId>
@@ -128,6 +132,7 @@
         <module>nuwa-common</module>
         <module>nuwa-business</module>
         <module>nuwa-demo</module>
+        <module>nuwa-starter</module>
     </modules>
     <repositories>
         <repository>

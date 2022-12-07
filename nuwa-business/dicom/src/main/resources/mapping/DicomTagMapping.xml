@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.holelin.dicom.mapper.DicomTagMapper">
+
+
+    <select id="queryMust" resultType="cn.holelin.dicom.entity.DicomTag">
+        select *
+        from dicom_tag
+        where is_must = 1
+    </select>
+    <select id="queryNeedDesensitized" resultType="cn.holelin.dicom.entity.DicomTag">
+        select *
+        from dicom_tag
+        where is_need_desensitized = 1
+    </select>
+
+    <select id="queryNeedCheck" resultType="cn.holelin.dicom.entity.DicomTag">
+        select *
+        from dicom_tag
+        where is_need_check = 1
+    </select>
+    <select id="queryNeedStore" resultType="cn.holelin.dicom.entity.DicomTag">
+        select *
+        from dicom_tag
+        where is_need_store = 1
+    </select>
+</mapper>

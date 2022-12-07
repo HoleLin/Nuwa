@@ -1,0 +1,2 @@
+cn.holelin.logfilter.starter.EnableLogFilter=\
+  cn.holelin.logfilter.starter.config.LogFilterAutoConfiguration
