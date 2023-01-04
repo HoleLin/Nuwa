@@ -33,6 +33,7 @@ import java.util.Set;
 
 /**
  * PACS 推图实现类
+ *
  * @Description:
  * @Author: HoleLin
  * @CreateDate: 2022/12/7 17:29
@@ -82,6 +83,7 @@ public class PacsStoreSupport extends AbstractPacsOperationTemplate {
         }
         list.clear();
     }
+
     private void doScan(Path path, DicomFiles.Callback callback) {
         if (Files.isDirectory(path)) {
             try {
@@ -212,11 +214,12 @@ public class PacsStoreSupport extends AbstractPacsOperationTemplate {
                 System.err.println(cmd);
         }
     }
+
     @Data
     @Builder
     @AllArgsConstructor
     @NoArgsConstructor
-    class ScuInfo {
+    static class ScuInfo {
 
         private String cuid;
         private String iuid;

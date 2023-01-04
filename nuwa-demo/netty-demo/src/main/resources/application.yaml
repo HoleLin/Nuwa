@@ -1,0 +1,9 @@
+server:
+  port: 10088
+  servlet:
+    context-path: /message
+
+message:
+  websocket:
+    work-path: /ws
+    port: 10089
