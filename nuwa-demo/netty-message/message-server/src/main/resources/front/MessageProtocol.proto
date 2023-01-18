@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package  protocol;
+option optimize_for = SPEED;
+option java_package = "cn.holelin.messagepushnetty.protocol";
+option java_outer_classname = "MessageProtocol";
+
+// 消息格式
+message MessageProto{
+
+  // 消息的唯一Id可以用 UUID 表示
+  string messageId = 1;
+  // 消息发送方
+  string fromUid = 2;
+  // 消息接收方
+  string sendUid = 3;
+  // 聊天模式 群聊还是单聊
+  int32 chatType = 4;
+  // 消息类型 比如登录消息、聊天消息、ack 消息、ping、pong 消息
+  int32 messageType = 5;
+  // 消息格式 如文本 图片等
+  int32 messageFormat = 6;
+  // 消息体
+  string content = 7;
+  // 发送消息的时间戳
+  int64 timestamp = 8;
+
+}

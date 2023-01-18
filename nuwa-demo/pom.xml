@@ -26,6 +26,7 @@
     </properties>
     <modules>
         <module>netty-demo</module>
+        <module>netty-message</module>
     </modules>
     <dependencyManagement>
         <dependencies>
