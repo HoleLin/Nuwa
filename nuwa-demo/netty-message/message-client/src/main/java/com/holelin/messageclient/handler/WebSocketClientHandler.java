@@ -1,6 +1,5 @@
 package com.holelin.messageclient.handler;
 
-import com.diannei.ai.messageclient.client.WebSocketClient;
 import com.holelin.messageclient.client.WebSocketClient;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
