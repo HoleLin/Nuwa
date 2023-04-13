@@ -19,7 +19,6 @@
         <hutool.version>5.8.11</hutool.version>
         <fastjson2.version>2.0.23</fastjson2.version>
         <log.version>2.0.6</log.version>
-        <junit.jupiter.version>5.9.2</junit.jupiter.version>
 
     </properties>
 
@@ -52,15 +51,7 @@
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.jupiter.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
+            <artifactId>junit-jupiter</artifactId>
         </dependency>
     </dependencies>
 </project>

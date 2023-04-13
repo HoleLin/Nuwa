@@ -11,19 +11,20 @@
 <script type="text/javascript">
     let socket;
     const SEND_MESSAGE = 6;
+    const PONG = 1;
     const LOGIN_RESPONSE = 20;
     const CREATE_AND_JOIN_GROUP_RESPONSE = 30;
     const LEAVE_GROUP_RESPONSE = 50;
     const SEND_MESSAGE_RESPONSE = 60;
 
-    const CHAT_SINGLE = 1;
+    const CHAT_SIGNLE = 1;
     const CHAT_GROUP = 2;
     let currentClientId;
 
     //如果浏览器支持WebSocket
     if (window.WebSocket) {
         //参数就是与服务器连接的地址
-        socket = new WebSocket("ws://localhost:10089/ws");
+        socket = new WebSocket("ws://192.168.253.246:10089/ws");
         //客户端收到服务器消息的时候就会执行这个回调方法
         socket.onmessage = function (event) {
             const ta = document.getElementById("responseText");
@@ -45,11 +46,14 @@
                     if (SEND_MESSAGE_RESPONSE === responseMessage.messageType) {
                         handleSendMessageRes(responseMessage, ta);
                     }
-                    if (SEND_MESSAGE === responseMessage.messageType && CHAT_SINGLE === responseMessage.chatType) {
+                    if (SEND_MESSAGE === responseMessage.messageType && CHAT_SIGNLE === responseMessage.chatType) {
                         handleSingleRes(responseMessage, ta);
                     }
                     if (SEND_MESSAGE === responseMessage.messageType && CHAT_GROUP === responseMessage.chatType) {
                         handleGroupRes(responseMessage, ta);
+                    }
+                    if (PONG === responseMessage.messageType) {
+                        handlePingRes(responseMessage,ta);
                     }
                 },
                 fail: function (err) {
@@ -107,8 +111,28 @@
             }
         });
     }
+    function ping() {
+        if (!window.WebSocket) {
+            return;
+        }
+        // socket.binaryType = "arraybuffer";
+        // 判断是否开启
+        if (socket.readyState !== WebSocket.OPEN) {
+            alert("连接没有开启");
+            return;
+        }
+        const data = {
+            "fromUid": "",
+            "sendUid": "",
+            "chatType": 0,
+            "messageType": 0,
+            "messageFormat": 0,
+            "content": ""
+        };
+        send(data);
 
-    function login() {
+    }
+    function login(userId) {
         if (!window.WebSocket) {
             return;
         }
@@ -124,22 +148,30 @@
             "chatType": 0,
             "messageType": 2,
             "messageFormat": 0,
-            "content": "LOGIN"
+            "content": userId
         };
-        console.log(data);
-        messageEncoder({
-            data: data,
-            success: function (buffer) {
-                console.log("编码成功");
-                socket.send(buffer);
-            },
-            fail: function (err) {
-                console.log(err);
-            },
-            complete: function () {
-                console.log("编码全部完成")
-            }
-        });
+        send(data);
+
+    }
+    function loginOut() {
+        if (!window.WebSocket) {
+            return;
+        }
+        // socket.binaryType = "arraybuffer";
+        // 判断是否开启
+        if (socket.readyState !== WebSocket.OPEN) {
+            alert("连接没有开启");
+            return;
+        }
+        const data = {
+            "fromUid": "",
+            "sendUid": "",
+            "chatType": 0,
+            "messageType": 7,
+            "messageFormat": 0,
+            "content": ""
+        };
+        send(data);
     }
 
     function createGroup(groupId) {
@@ -243,9 +275,14 @@
 
     function handleLoginRes(resp, ta) {
         let content = resp.content;
-        currentClientId = content;
+        if(content===''){
+            ta.value = ta.value + "\n登录失败";
+
+        }else{
+            currentClientId = content;
         console.log("currentClientId:" + currentClientId)
         ta.value = ta.value + "\n当前登录的ClientId为:" + content;
+        }
     }
 
     function handleCreateAndJoinGroupRes(resp, ta) {
@@ -273,6 +310,10 @@
         } else {
             ta.value = ta.value + "\n发送消息失败";
         }
+    }
+    function handlePingRes(resp, ta) {
+        let content = resp.content;
+        ta.value = ta.value + "\n"+content;
     }
 
     /**
@@ -366,12 +407,17 @@
     }
 </script>
 
-<h1>欢迎访问系统</h1>
+<h1>欢迎访问客服系统</h1>
 
 
 <form onsubmit="return false">
+    <h4>连通性测试</h4>
+    <input type="button" value="ping" onclick="ping()">
+
     <h4>用户登录：</h4>
-    <input type="button" value="登录" onclick="login()">
+    userId:<input type="text" name="userId">
+    <input type="button" value="登录" onclick="login(this.form.userId.value)">
+    <input type="button" value="登出" onclick="loginOut()">
 
     <br/>
     <br/>

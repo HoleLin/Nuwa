@@ -22,6 +22,7 @@
 
     <modules>
         <module>logfilter-starter</module>
+        <module>log-info</module>
     </modules>
     <build>
         <plugins>

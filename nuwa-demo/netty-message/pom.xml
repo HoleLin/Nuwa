@@ -13,6 +13,7 @@
     <name>netty-message</name>
     <modules>
         <module>message-client</module>
+        <module>message-server</module>
     </modules>
 
     <properties>

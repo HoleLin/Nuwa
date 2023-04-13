@@ -99,7 +99,7 @@ public class ZipUtil {
                 zipOut.closeEntry();
             }
             File[] children = fileToZip.listFiles();
-            for (var childFile : children) {
+            for (File childFile : children) {
                 // Recursively apply function to all children
                 zipFile(childFile, fileName + "/" + childFile.getName(), zipOut);
             }
@@ -117,8 +117,8 @@ public class ZipUtil {
     }
 
     public static Integer[] performLottery(int numNumbers, int numbersToPick) {
-        var numbers = new ArrayList<Integer>();
-        for(var i = 0; i < numNumbers; i++) {
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        for(int i = 0; i < numNumbers; i++) {
             numbers.add(i+1);
         }
 

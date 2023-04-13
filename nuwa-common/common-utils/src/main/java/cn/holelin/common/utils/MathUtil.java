@@ -27,8 +27,8 @@ public class MathUtil {
     }
 
     public static int factorial(int number) {
-        var result = 1;
-        for (var factor = 2; factor <= number; factor++) {
+        int result = 1;
+        for (int factor = 2; factor <= number; factor++) {
             result *= factor;
         }
         return result;
@@ -46,16 +46,16 @@ public class MathUtil {
         }
 
         // Calculate the latitude and longitude differences
-        var latitudeDiff = Math.toRadians(latB - latA);
-        var longitudeDiff = Math.toRadians(longB - longA);
+        double latitudeDiff = Math.toRadians(latB - latA);
+        double longitudeDiff = Math.toRadians(longB - longA);
 
-        var latitudeA = Math.toRadians(latA);
-        var latitudeB = Math.toRadians(latB);
+        double latitudeA = Math.toRadians(latA);
+        double latitudeB = Math.toRadians(latB);
 
         // Calculating the distance as per haversine formula
-        var a = Math.pow(Math.sin(latitudeDiff / 2), 2)
+        double a = Math.pow(Math.sin(latitudeDiff / 2), 2)
                 + Math.pow(Math.sin(longitudeDiff / 2), 2) * Math.cos(latitudeA) * Math.cos(latitudeB);
-        var c = 2 * Math.asin(Math.sqrt(a));
+        double c = 2 * Math.asin(Math.sqrt(a));
         return SPHERE_RADIUS_IN_KM * c;
     }
 
@@ -70,8 +70,8 @@ public class MathUtil {
     }
 
     public static Integer[] performLottery(int numNumbers, int numbersToPick) {
-        var numbers = new ArrayList<Integer>();
-        for (var i = 0; i < numNumbers; i++) {
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        for (int i = 0; i < numNumbers; i++) {
             numbers.add(i + 1);
         }
 
@@ -83,22 +83,22 @@ public class MathUtil {
         if (num < 0) {
             throw new IllegalArgumentException("Non-negative numbers only.");
         }
-        final var numStr = String.valueOf(num);
+        final String numStr = String.valueOf(num);
 
-        var sum = 0;
-        var isOddPosition = true;
+        int sum = 0;
+        boolean isOddPosition = true;
         // We loop on digits in numStr from right to left.
-        for (var i = numStr.length() - 1; i >= 0; i--) {
-            final var digit = Integer.parseInt(Character.toString(numStr.charAt(i)));
-            final var substituteDigit = (isOddPosition ? 2 : 1) * digit;
+        for (int i = numStr.length() - 1; i >= 0; i--) {
+            final int digit = Integer.parseInt(Character.toString(numStr.charAt(i)));
+            final int substituteDigit = (isOddPosition ? 2 : 1) * digit;
 
-            final var tensPlaceDigit = substituteDigit / 10;
-            final var onesPlaceDigit = substituteDigit % 10;
+            final int tensPlaceDigit = substituteDigit / 10;
+            final int onesPlaceDigit = substituteDigit % 10;
             sum += tensPlaceDigit + onesPlaceDigit;
 
             isOddPosition = !isOddPosition;
         }
-        final var checksumDigit = (10 - (sum % 10)) % 10;
+        final int checksumDigit = (10 - (sum % 10)) % 10;
         // Outermost modulus handles edge case `num = 0`.
         return checksumDigit;
     }
@@ -121,7 +121,7 @@ public class MathUtil {
         }
 
         // if not, then just check the odds
-        for (var i = 3; i * i <= number; i += 2) {
+        for (int i = 3; i * i <= number; i += 2) {
             if (number % i == 0) {
                 return false;
             }
