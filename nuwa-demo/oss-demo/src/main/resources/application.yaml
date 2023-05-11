@@ -1,0 +1,17 @@
+server:
+  port: 18004
+  servlet:
+    context-path: /oss
+oss:
+  minio-properties:
+    bucket-name: dnstore
+    endpoint: http://192.168.253.246:9000
+    access-key: minio
+    access-secret: miniostorage
+  ali-yun-properties:
+    bucket-name:
+    region:
+    endpoint:
+    access-key:
+    access-secret:
+

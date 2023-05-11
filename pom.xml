@@ -133,32 +133,7 @@
         <module>nuwa-business</module>
         <module>nuwa-demo</module>
         <module>nuwa-starter</module>
+        <module>nuwa-demo/oss-demo</module>
     </modules>
-    <repositories>
-        <repository>
-            <id>alimaven</id>
-            <name>aliyun maven</name>
-            <url>https://maven.aliyun.com/repository/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>dcm4che</id>
-            <name>dcm4che</name>
-            <url>https://www.dcm4che.org/maven2/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
 </project>
