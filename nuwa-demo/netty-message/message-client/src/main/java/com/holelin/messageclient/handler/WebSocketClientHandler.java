@@ -30,7 +30,7 @@ public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> 
 
     WebSocketClientHandshaker handShaker;
     ChannelPromise handshakeFuture;
-
+    @Override
     public void handlerAdded(ChannelHandlerContext ctx) {
         this.handshakeFuture = ctx.newPromise();
     }
