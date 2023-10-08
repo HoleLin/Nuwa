@@ -52,6 +52,7 @@
     </dependencyManagement>
     <modules>
         <module>dicom</module>
+        <module>dicom_pixelmed</module>
     </modules>
     <build>
         <plugins>

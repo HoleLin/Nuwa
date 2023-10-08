@@ -133,7 +133,6 @@
         <module>nuwa-business</module>
         <module>nuwa-demo</module>
         <module>nuwa-starter</module>
-        <module>nuwa-demo/oss-demo</module>
     </modules>
 
 </project>

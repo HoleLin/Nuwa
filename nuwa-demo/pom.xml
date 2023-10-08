@@ -31,6 +31,7 @@
         <module>redis-demo</module>
         <module>test-demo</module>
         <module>netty-rpc</module>
+        <module>oss-demo</module>
     </modules>
     <dependencyManagement>
         <dependencies>
