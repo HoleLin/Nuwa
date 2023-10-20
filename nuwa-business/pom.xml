@@ -16,7 +16,7 @@
     <properties>
         <!--  DICOM相关    -->
         <commons-net.version>3.8.0</commons-net.version>
-        <dcm4che.version>5.23.3</dcm4che.version>
+        <dcm4che.version>5.31.0</dcm4che.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -46,6 +46,11 @@
             <dependency>
                 <groupId>org.dcm4che</groupId>
                 <artifactId>dcm4che-imageio</artifactId>
+                <version>${dcm4che.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dcm4che</groupId>
+                <artifactId>dcm4che-imageio-opencv</artifactId>
                 <version>${dcm4che.version}</version>
             </dependency>
         </dependencies>
