@@ -21,6 +21,8 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
+ * 原文: http://seata.io/zh-cn/blog/seata-analysis-UUID-generator
+ * Seata基于改良版雪花算法的分布式UUID生成器
  * @author funkye
  * @author selfishlover
  */
@@ -119,8 +121,11 @@ public class IdWorker {
      */
     public long nextId() {
         waitIfNecessary();
+        // 获得递增后的时间戳和序列号
         long next = timestampAndSequence.incrementAndGet();
+        // 截取低53位
         long timestampWithSequence = next & timestampAndSequenceMask;
+        // 跟先前保存好的高11位进行一个或的位运算
         return workerId | timestampWithSequence;
     }
 
@@ -177,6 +182,7 @@ public class IdWorker {
                 continue;
             }
             byte[] mac = networkInterface.getHardwareAddress();
+            // 取值范围就只能是 [0,1023] 之间
             return ((mac[4] & 0B11) << 8) | (mac[5] & 0xFF);
         }
         throw new RuntimeException("no available mac found");
