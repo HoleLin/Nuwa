@@ -1,6 +1,7 @@
 package cn.holelin.dicom.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -14,8 +15,9 @@ import java.time.LocalDate;
  * @UpdateRemark: 修改内容
  * @Version: 1.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class DicomImage extends DicomSeriesBaseInfo{
+public class DicomImage extends DicomSeries {
 
     public DicomImage() {
     }
@@ -47,9 +49,9 @@ public class DicomImage extends DicomSeriesBaseInfo{
 
     /**
      * -------------------------------------
-     *
-     *      Patient Information
-     *
+     * <p>
+     * Patient Information
+     * <p>
      * -------------------------------------
      */
     private String patientName;

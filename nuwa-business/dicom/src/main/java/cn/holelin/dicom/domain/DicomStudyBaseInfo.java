@@ -16,10 +16,10 @@ public class DicomStudyBaseInfo {
     /**
      * 检查ID.
      */
-    private String studyID;
+    private String studyId;
     /**
      * 检查实例号：唯一标记不同检查的号码
      */
-    private String studyInstanceUID;
+    private String studyInstanceUid;
 
 }

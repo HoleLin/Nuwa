@@ -1,6 +1,7 @@
 package cn.holelin.dicom.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @Description:
@@ -11,6 +12,7 @@ import lombok.Data;
  * @UpdateRemark: 修改内容
  * @Version: 1.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class DicomSeriesBaseInfo extends DicomStudyBaseInfo {
 
@@ -21,6 +23,6 @@ public class DicomSeriesBaseInfo extends DicomStudyBaseInfo {
      *
      * -------------------------------------
      */
-    private String seriesInstanceUID;
+    private String seriesInstanceUid;
     private String seriesDescription;
 }

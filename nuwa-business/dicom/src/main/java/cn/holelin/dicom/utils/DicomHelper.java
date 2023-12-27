@@ -68,11 +68,11 @@ public class DicomHelper {
             if (CollUtil.isNotEmpty(dicomImages)) {
                 // 根据序列属性分组序列
                 final Map<String, List<DicomImage>> study =
-                        dicomImages.stream().collect(Collectors.groupingBy(DicomImage::getSeriesInstanceUID));
+                        dicomImages.stream().collect(Collectors.groupingBy(DicomImage::getSeriesInstanceUid));
                 DicomStudy dicomStudy = new DicomStudy();
                 final DicomImage simpleDicomImage = dicomImages.get(0);
-                dicomStudy.setStudyID(simpleDicomImage.getStudyID());
-                dicomStudy.setStudyInstanceUID(simpleDicomImage.getStudyInstanceUID());
+                dicomStudy.setStudyId(simpleDicomImage.getStudyId());
+                dicomStudy.setStudyInstanceUid(simpleDicomImage.getStudyInstanceUid());
                 dicomStudy.setSeries(study);
                 splitFileDir(dicomStudy);
 
@@ -105,8 +105,8 @@ public class DicomHelper {
      * @param dicomStudy 待重新规划文件路径的多序列
      */
     private static void splitFileDir(DicomStudy dicomStudy) throws IOException {
-        final String studyId = dicomStudy.getStudyID();
-        final String studyInstanceUid = dicomStudy.getStudyInstanceUID();
+        final String studyId = dicomStudy.getStudyId();
+        final String studyInstanceUid = dicomStudy.getStudyInstanceUid();
         final String studyDirName = DigestUtil.sha1Hex(studyInstanceUid + studyId);
         final Path studyDir = Paths.get(SHARED_PATH + studyDirName);
         if (!studyDir.toFile().exists()) {

@@ -1,6 +1,7 @@
 package cn.holelin.dicom.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 
@@ -13,8 +14,9 @@ import java.time.LocalDateTime;
  * @UpdateRemark: 修改内容
  * @Version: 1.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class DicomSeries extends DicomImage {
+public class DicomSeries extends DicomSeriesBaseInfo {
 
     /**
      * ---------------------

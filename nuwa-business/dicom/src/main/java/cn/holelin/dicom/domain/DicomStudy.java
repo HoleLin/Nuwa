@@ -1,6 +1,7 @@
 package cn.holelin.dicom.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Map;
  * @UpdateRemark: 修改内容
  * @Version: 1.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class DicomStudy extends DicomStudyBaseInfo {
 
