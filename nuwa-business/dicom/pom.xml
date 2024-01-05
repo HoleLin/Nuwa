@@ -15,7 +15,7 @@
     <properties>
         <java.version>11</java.version>
         <commons-pool2.version>2.11.1</commons-pool2.version>
-        <guava.version>31.1-jre</guava.version>
+        <guava.version>32.0.0-android</guava.version>
     </properties>
     <dependencies>
         <dependency>
@@ -91,9 +91,32 @@
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
         </dependency>
+        <!--  中央仓库中的版本比较低,故采用本地jia包形式引入,若后续私有仓库搭建完成后,可以改用依赖的形式     -->
+        <dependency>
+            <groupId>org.itk.simple</groupId>
+            <artifactId>simpleitk</artifactId>
+            <version>2.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/simpleitk-2.3.1.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
     <build>
+        <resources>
+            <!-- 加入如下配置，吧jar包以资源形式打包进指定路径 -->
+            <resource>
+                <directory>${project.basedir}/lib</directory>
+                <targetPath>BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>BOOT-INF/classes/</targetPath>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

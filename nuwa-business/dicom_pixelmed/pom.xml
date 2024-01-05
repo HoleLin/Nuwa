@@ -31,6 +31,21 @@
             <artifactId>vecmath</artifactId>
             <version>1.5.2</version>
         </dependency>
-
     </dependencies>
+    <build>
+        <resources>
+            <!-- 加入如下配置，吧jar包以资源形式打包进指定路径 -->
+            <resource>
+                <directory>${project.basedir}/lib</directory>
+                <targetPath>BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>BOOT-INF/classes/</targetPath>
+            </resource>
+        </resources>
+    </build>
 </project>
