@@ -49,6 +49,8 @@ public class PacsConnectionPool extends GenericKeyedObjectPool<String, Associati
         poolConfig.setMaxTotalPerKey(10);
         poolConfig.setMaxWait(Duration.ofMinutes(2));
         poolConfig.setTestWhileIdle(true);
+        // 归还连接时,需要验证一下连接是否有效,放置对象pacs手动中断连接,导致后续功能无法正常发起
+        poolConfig.setTestOnReturn(true);
         poolConfig.setTimeBetweenEvictionRuns(Duration.ofMinutes(10));
         return poolConfig;
     }
